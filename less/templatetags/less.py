@@ -30,7 +30,7 @@ class InlineLessNode(Node):
 
     def compile(self, source):
         source_file = NamedTemporaryFile(delete=False)
-        source_file.write(source)
+        source_file.write(source.encode('utf-8'))
         source_file.close()
         args = [LESS_EXECUTABLE, source_file.name]
 
